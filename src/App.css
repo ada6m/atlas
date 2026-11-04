@@ -1,0 +1,134 @@
+/* Two panels side by side */
+.app {
+  display: flex;
+  height: 100%;
+  gap: 1px;
+  background: #000;
+}
+
+.panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: #17191d;
+}
+
+/* Toolbars and status bars */
+.panel header,
+.panel footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #202329;
+  font-size: 13px;
+}
+
+.panel header label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.panel header input[type="range"] {
+  flex: 1;
+}
+
+.panel header input[type="number"] {
+  width: 4em;
+}
+
+/* Image / atlas display area */
+.viewport {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Tissue preview + atlas overlay share one "stage" that pans and zooms together */
+.stage {
+  position: relative;
+  flex: none;
+}
+
+.stage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+}
+
+.atlas-overlay {
+  position: absolute;
+  cursor: move;
+}
+
+.atlas-overlay canvas {
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+}
+
+.panel header label.grow {
+  flex: 1;
+}
+
+.panel header label.grow input[type="range"] {
+  flex: 1;
+}
+
+.panel header input.path {
+  flex: 1;
+  min-width: 120px;
+}
+
+/* Main 2D view fills the area; the 3D preview floats in the bottom-right corner */
+.viewer {
+  position: absolute;
+  inset: 0;
+}
+
+.preview3d {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  width: 200px;
+  height: 200px;
+  border: 1px solid #333842;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+/* Each tilt slider wants ~240px; below that they stack on two lines */
+.tilt {
+  flex: 1 1 240px;
+}
+
+.tilt .mono {
+  min-width: 3.5em;
+  text-align: right;
+}
+
+.tilt input[type="range"] {
+  flex: 1;
+}
+
+/* Export status line */
+.report {
+  padding: 8px 12px;
+  background: #1d2a22;
+  font-size: 12px;
+  max-height: 30%;
+  overflow: auto;
+}
+
+.mono {
+  font-family: ui-monospace, Consolas, monospace;
+  color: #9aa;
+}

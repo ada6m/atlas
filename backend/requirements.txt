@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+nibabel
+numpy
+tifffile
+imagecodecs
+zarr
+dask
+lxml
+pillow
